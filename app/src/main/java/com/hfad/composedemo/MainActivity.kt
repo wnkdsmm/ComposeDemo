@@ -63,7 +63,7 @@ fun DemoText2(message: String, fontSize: Float) {
 fun DemoSlider(sliderPosition: Float, onPositionChange: (Float) -> Unit ) {
     Slider(
         modifier = Modifier.padding(10.dp),
-        valueRange = 10f..38f,
+        valueRange = 15f..38f,
         value = sliderPosition,
         onValueChange = { onPositionChange(it) }
     )
@@ -71,7 +71,7 @@ fun DemoSlider(sliderPosition: Float, onPositionChange: (Float) -> Unit ) {
 
 @Composable
 fun DemoScreen(modifier: Modifier = Modifier) {
-    var sliderPosition by remember { mutableFloatStateOf(10f) }
+    var sliderPosition by remember { mutableFloatStateOf(15f) }
     val handlePositionChange = { position : Float ->
         sliderPosition = position
     }
@@ -81,7 +81,7 @@ fun DemoScreen(modifier: Modifier = Modifier) {
         modifier = Modifier.fillMaxSize()
     ) {
         DemoText(message = "Welcome to Android", fontSize = sliderPosition)
-//      DemoText2(message = "esopmoC ot emocleW", fontSize = 20f)
+        DemoText2(message = "esopmoC ot emocleW", fontSize = sliderPosition - 5 )
         Spacer(modifier = Modifier.height(150.dp))
         DemoSlider(
             sliderPosition = sliderPosition,
